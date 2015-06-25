@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="generator">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title></title>
+<link href="bootstrap.min.css" rel="stylesheet">
+<style class="custom-css">
+#jumbo {
+	background-image: url(images/bg.jpg);
+	color: #eee;
+}
+
+#jumbo p {
+	font-size: 16px;
+}
+
+#try-header {
+	margin: 30px 0px;
+}
+
+#try-more {
+	margin: 30px 0px;
+	font-style: italic;
+}
+</style>
+</head>
+
+<body ng-controller="mainController">
+	<div id="jumbo" class="jumbotron"
+		style="padding-top: 1%; padding-bottom: 0%;">
+		<div class="container">
+			<h1>Hybrid Application Generator!</h1>
+			<p>Your application is a click away.</p>
+		</div>
+	</div>
+	<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-12">
+					<ol class="breadcrumb">
+					  <li>
+					  	<a  href="#" ng-click="page=1">Application Details</a>
+					  </li>
+					  <li>
+					  		<a href="#" ng-click="page=2" ng-if="page>1">Views</a>
+					  		<span ng-if="page<2" >Views</span>
+					  	</li>
+					  	<li>
+					  		<a ng-if="page>2" href="#">Utilities</a>
+					  		<span ng-if="page<3">Utilities</span>
+					  	</li>
+					  
+					</ol>
+				</div>
+			</div>
+		</div>	
+	<div ng-show="page==1">
+		<div class="container">
+			<!-- Example row of columns -->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="col-md-12">
+						<div class="panel panel-primary ">
+							<div class="panel-heading">
+								<h3 class="panel-title">Application Name</h3>
+							</div>
+							<div class="panel-body" autocomplete="off">
+								<div class="form-group">
+									<input type="text" ng-model='ConfigData.appName'
+										class="form-control" autocomplete="off">
+								</div>
+								<span style="font-size: smaller;font-family: cursive;">
+									We will be appending 'app'  to application name</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">Front-end MVC Framework</h3>
+							</div>
+							<div class="panel-body" autocomplete="off">
+								<div class="form-group">
+								<select class="form-control" id="framework"
+									ng-model="ConfigData.framework">
+									<option value="{{framework.value}}"
+										ng-selected="{{framework.value==ConfigData.framework}}"
+										ng-repeat="framework in frameworkList">{{framework.text}}</option>
+								</select>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="col-md-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">RWD framework</h3>
+							</div>
+							<div class="panel-body" autocomplete="off">
+								<div class="form-group">
+								<select class="form-control" id="rwd"
+									ng-model="ConfigData.rwdFramework">
+									<option value="{{rwd.value}}"
+										ng-selected="{{rwd.value==ConfigData.rwdFramework}}"
+										ng-repeat="rwd in rwdList">{{rwd.text}}</option>
+								</select>
+								</div>
+								<span style="font-size: smaller;font-family: cursive;">&nbsp;</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">Proxy Url (if any)</h3>
+							</div>
+							<div class="panel-body" autocomplete="off">
+								<input type="text" ng-model="ConfigData.proxy"
+									class="form-control" />
+								<div class="form-group"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-show="page==2">
+<div class="container">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="col-md-5">
+				
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Views</h3>
+						</div>
+						<div class="panel-body" autocomplete="off" style="overflow: auto;height: 250px;">
+							<div class="form-group">
+								<label> Welcome page </label> <input type="text"
+									autocomplete="off" ng-model="ConfigData.defaultView"
+									class="form-control ng-pristine ng-valid">
+							</div>
+							<div class="form-group">
+								<br>
+								<div class="row" ng-repeat="view in ConfigData.views track by $index">
+									<div class="col-md-10">
+										<input type="text" ng-model="ConfigData.views[$index]"
+											class="form-control pull-left">
+									</div>
+									<div class="col-md-2">
+										<a href="#" class="btn btn-danger btn-sm pull-right" ng-click="deleteView($index)">Delete!</a>
+									</div>
+								</div>
+								<br>
+								<button ng-click="addView()"
+									class="btn btn-primary btn-sm pull-left">Add!</button>
+							</div>
+						</div>
+					</div>
+							</div>
+			<div class="col-md-7"></div>
+		</div>
+</div>
+
+	</div>
+	<div ng-show="page==3">
+<div class="container">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="col-md-6">
+				
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">Utilities</h3>
+						</div>
+						<div class="panel-body" autocomplete="off">
+							<div class="form-group">
+								<br>
+								<div class="row" ng-repeat="util in utilsList track by $index">
+									<div class="col-md-1">
+										<input type="checkbox" ng-model="ConfigData.utils[util.name]" class="pull-left"/></div>
+									<div class="col-md-11">
+										<span>{{util.text}}</span> 
+										</div>
+									
+								</div>
+								<br>
+							</div>
+						</div>
+					</div>
+							</div>
+			<div class="col-md-6"></div>
+		</div>
+</div>
+
+	</div>
+	<div class="row">
+		<div class="col-md-4"></div>
+
+		<div class="col-md-4 alert {{errorClass}}" ng-show="error"
+			style="text-align: center;">
+			<strong>{{errorMessage}}</strong>
+		</div>
+
+		<div class="col-md-4"></div>
+	</div>
+
+	<hr>
+	<div class="container">
+
+		<div class="row">
+			<div ng-class="{true:'col-md-4', false:'col-md-2'}[page==1]"></div>
+			<button class="col-md-4 btn btn-success btn-lg" ng-show="page>1"
+				ng-click="page=page-1;error=false">Back</button>
+			<button class="col-md-4 btn btn-success btn-lg"
+				ng-click="buttonclick()">{{page<3?"Next":"Generate"}}</button>
+
+
+			<div ng-class=" {true:'col-md-4', false:'col-md-2'}[page==1]">
+			</div>
+		</div>
+	</div>
+	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script-->
+	<script src="angular.min.js"></script>
+	<script src="generator.js"></script>
+
+	</script>
+</body>
+</html>

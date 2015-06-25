@@ -1,0 +1,105 @@
+{
+	"Common": {
+		"AppConstants": {
+			"APP_NAME": "appApp",
+			"APP_VERSION": "0.1"
+		},
+		"Messages": {
+			"LOGIN_ERROR": "Error in Login"
+		},
+		"PeripheralConstants": {
+			"SCANNER_ID": "Scanner1"
+		}
+	},
+	"Global": {
+		"Routes": {
+			"otherwise": {
+				"redirectTo": "/home"
+			},
+			"/home": {
+				"settings": {
+					"templateUrl": "views/home.html",
+					"controller": "appApp-homeCntrl"
+				},
+				"config": {
+					"header": "",
+					"bodyColor": "grey"
+				}
+			},
+			"/login": {
+				"settings": {
+					"templateUrl": "views/login.html",
+					"controller": "appApp-loginCntrl"
+				},
+				"config": {
+					"header": "",
+					"bodyColor": "gray"
+				}
+			},
+			"/cart": {
+				"settings": {
+					"templateUrl": "views/cart.html",
+					"controller": "appApp-cartCntrl"
+				},
+				"config": {
+					"header": "",
+					"bodyColor": "gray"
+				}
+			},
+			"/checkout": {
+				"settings": {
+					"templateUrl": "views/checkout.html",
+					"controller": "appApp-checkoutCntrl"
+				},
+				"config": {
+					"header": "",
+					"bodyColor": "gray"
+				}
+			},
+			"/products": {
+				"settings": {
+					"templateUrl": "views/products.html",
+					"controller": "appApp-productsCntrl"
+				},
+				"config": {
+					"header": "",
+					"bodyColor": "gray"
+				}
+			},
+			"/services": {
+				"settings": {
+					"templateUrl": "views/services.html",
+					"controller": "appApp-servicesCntrl"
+				},
+				"config": {
+					"header": "",
+					"bodyColor": "gray"
+				}
+			}
+		}
+	},
+	"Env": {
+		"app": {
+			"ApiConstants": {
+				"BASE_URL": "http://abc.pqr.com:8180/xyz/",
+				"API_DETAILS": {
+					"login": {
+						"url": "login/Action",
+						"method": "POST"
+					}
+				}
+			}
+		},
+		"debug": {
+			"ApiConstants": {
+				"BASE_URL": "/scripts/json/",
+				"API_DETAILS": {
+					"login": {
+						"url": "login.json",
+						"method": "POST"
+					}
+				}
+			}
+		}
+	}
+}

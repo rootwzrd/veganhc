@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vegan MedicalCareGardens of Kona</title>
+    <meta name="viewport" Gardens of Kona</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body ng-class="bodyColour" ng-controller="appApp-mainCntrl">
+    <!-- ajax loader image -->
+    <div id="loading">
+        <img src="images/loader.gif" class="ajax-loader"></img>
+    </div>
+
+    <div ng-view class="ng-cloak"></div>
+    <p>to see this site with live updates while editing.</p>
+    <p>Do your grunt and point your browser to http://localhost:9001</p>
+    <p>All edits shoud be done in the app ditertory.....</p>
+    <p>This is the just the start frame work.</p>
+    <p>I will change the routing to not show a login popup in the next push.</p>
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+
+    <!--app.js -->
+    <script type="text/javascript" src="scripts/app.js"></script>
+
+    <!--controllers -->
+    <script type="text/javascript" src="scripts/controllers/cartController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/checkoutController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/homeController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/loginController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/mainController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/productsController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/servicesController.js"></script>
+
+    <!--services -->
+    <script type="text/javascript" src="scripts/services/commonServices.js"></script>
+    <script type="text/javascript" src="scripts/services/errorHandler.js"></script>
+    <script type="text/javascript" src="scripts/services/interceptor.js"></script>
+
+    <!--directives -->
+
+
+    <!--filters -->
+
+
+    <!--misc -->
+
+
+
+
+
+</body>
+
+</html>

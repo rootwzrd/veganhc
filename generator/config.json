@@ -1,0 +1,16 @@
+{
+	"appName": "DevTrends",
+	"rwdFramework": "bootstrap",
+	"framework": "angular",
+	"proxy": "",
+	"defaultView": "login",
+	"views": [
+		"services",
+		"Angular",
+		"Yeoman",
+		"Bower",
+		"Grunt",
+		"Bitbucket"
+	],
+	"utils": []
+}
